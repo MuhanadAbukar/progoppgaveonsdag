@@ -10,19 +10,19 @@ namespace ConsoleApp5
 {
     internal class Program
     {
-        static int len(int num)
+        static int len(int num, int rec)
         {
-            int len = 0;
-            for (int i = 1; i < num; i *= 10)
-            {
-                len++;
-            }
-            return len;
+            if (num == 0)
+                return rec;
+            num /= 10;
+            rec++;
+            return len(num, rec);
         }
         static void Main(string[] args)
         {
             int num = int.Parse(Console.ReadLine());
-            len(num);
+            Console.WriteLine(len(num,0));
+            Console.ReadLine();
         }
         
     }
